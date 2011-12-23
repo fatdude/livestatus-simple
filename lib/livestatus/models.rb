@@ -18,9 +18,9 @@ module Livestatus
 
     class << self
       def table_name(value = nil)
-        @@table_name ||= false
-        @@table_name = value if value
-        @@table_name or to_s.demodulize.tableize.downcase.pluralize
+        @table_name ||= false
+        @table_name = value if value
+        @table_name or to_s.demodulize.tableize.downcase.pluralize
       end
 
       def boolean_attributes(*accessors)

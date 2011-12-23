@@ -73,9 +73,7 @@ module Livestatus
         else
           "#{k.to_s.camelize}: #{v}"
         end
-      end.flatten.join("\n").tap do |s|
-        s += "\n" unless s.empty?
-      end
+      end.flatten.join("\n")
     end
 
     def column_zip(data, options)
