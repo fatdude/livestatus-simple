@@ -14,7 +14,6 @@ module Livestatus
       options.merge!({
         :response_header => "fixed16",
         :output_format => "json",
-        :keep_alive => "on",
       })
 
       send("GET #{model.table_name}\n#{build_headers(options)}\n")
@@ -60,7 +59,9 @@ module Livestatus
         [res[0..2].to_i, res[4..14].chomp.to_i]
       else
         # read response body
-        socket.read(length)
+        data = socket.read(length)
+        socket.close
+        data
       end
     end
 
