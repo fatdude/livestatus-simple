@@ -1,6 +1,7 @@
 require "active_support/core_ext"
 require "livestatus/handler"
 require "livestatus/memoize"
+require "forwardable"
 
 module Livestatus
 
