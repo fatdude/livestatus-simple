@@ -11,8 +11,9 @@ connection = Livestatus::Connection.new({:uri => "unix:///var/nagios/rw/live"})
 connection.command("DISABLE_NOTIFICATIONS")
 
 options  = { 
-  :columns => 'host_display_name display_name',
-  :filter  => ['state > 0', 'description ~ Interface'] 
+  :columns => 'host_name description state_type acknowledged',
+  :filter  => ['state > 0', 'state_type = 1', 
+               'acknowledged = 0', 'host_name = wobgate'] 
 }
 
 services = connection.get(Livestatus::Service, options)

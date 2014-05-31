@@ -1,8 +1,11 @@
 #!/usr/bin/env ruby
 
+# for testing local stuff from examples directory
+$LOAD_PATH.unshift '../lib'
+
 require 'livestatus'
 
-c = Livestatus::Connection.new("https://nagios.example.com/live")
+c = Livestatus::Connection.new(uri: "https://nagios.example.com/live")
 
 c.handler.session.insecure = true
 c.handler.session.auth_type = :basic

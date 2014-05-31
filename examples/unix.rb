@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # for testing local stuff from examples directory
-# $LOAD_PATH.unshift '../lib'
+$LOAD_PATH.unshift '../lib'
 
 require 'livestatus'
 

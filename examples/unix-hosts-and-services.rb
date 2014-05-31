@@ -2,10 +2,10 @@
 # improved unix example with ideas from https://github.com/jedi4ever/livestatus
 
 # for testing local stuff from examples directory
-# $LOAD_PATH.unshift '../lib'
+$LOAD_PATH.unshift '../lib'
 
 require 'livestatus'
-require 'pp'
+require 'yaml'
 
 connection = Livestatus::Connection.new({:uri => "unix:///var/nagios/rw/live"})
 
