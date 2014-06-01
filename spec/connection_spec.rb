@@ -34,6 +34,10 @@ describe 'Connection' do
       status.should respond_to(:program_start)
       status.data.should include(:livestatus_version)
       status.livestatus_version.should match(/\d+\.\d+\.\d+/)
+    end
+
+    it "get livestatus instance should raise an error on non existent attributes" do
+      status = @conn.get(Livestatus::Status)[0]
       expect { status.nonexistent }.to raise_error(KeyError)
     end
   end
