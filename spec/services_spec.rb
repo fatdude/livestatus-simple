@@ -13,11 +13,11 @@ describe 'Services' do
     status[0].should respond_to(:data)
   end
 
-  it "get only services for host #{ENV['HOST']}" do
-    options = {filter: ["host_name = #{ENV['HOST']}"]}
+  it "get only services for host #{ENV['HOST_NAME']}" do
+    options = {filter: ["host_name = #{ENV['HOST_NAME']}"]}
     status = @conn.get(Livestatus::Service, options)
     status.each do |s|
-      s.host_name.should == ENV['HOST']
+      s.host_name.should == ENV['HOST_NAME']
     end
   end
 

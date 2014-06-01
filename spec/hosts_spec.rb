@@ -13,9 +13,11 @@ describe 'Hosts' do
     status[0].should respond_to(:data)
   end
 
-  it "get filtered host #{ENV['HOST']}" do
-    options = {filter: ["host_name = #{ENV['HOST']}"]}
+  it "get filtered host #{ENV['HOST_NAME']}" do
+    options = {filter: ["name = #{ENV['HOST_NAME']}"]}
+    puts options.inspect
     status = @conn.get(Livestatus::Host, options)
+    status.count.should == 1
   end
 
   it "restrict attributes with columns" do
