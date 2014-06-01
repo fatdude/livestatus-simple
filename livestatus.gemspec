@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/swobspace/livestatus"
   s.summary     = %q{Livestatus is a simple Ruby library to control Nagios via MK Livestatus.}
   s.description = %q{Livestatus is a simple Ruby library to control Nagios via MK Livestatus.}
-  s.licence	= 'MIT'
+  s.license	= 'MIT'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -21,4 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "i18n"
   s.add_runtime_dependency "patron"
   s.add_runtime_dependency "yajl-ruby"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "dotenv"
 end
