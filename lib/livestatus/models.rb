@@ -12,8 +12,8 @@ module Livestatus
       @connection = connection
     end
 
-    def method_missing(name, *args)
-      data[name.to_sym]
+    def method_missing(name, *args, &block)
+       data.fetch(name.to_sym)
     end
 
     class << self
