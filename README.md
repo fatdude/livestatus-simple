@@ -1,15 +1,10 @@
-==========
 livestatus
 ==========
-
-:Author: `Benedikt Böhm <bb@xnull.de>`_
-:Web: https://github.com/zenops/livestatus
-:Git: ``git clone https://github.com/zenops/livestatus``
 
 Livestatus is a simple Ruby library to control Nagios via MK Livestatus.
 
 Contributing to livestatus
-==========================
+--------------------------
 
 - Check out the latest master to make sure the feature hasn't been implemented
   or the bug hasn't been fixed yet
@@ -24,6 +19,8 @@ Contributing to livestatus
 - Commit and push until you are happy with your contribution
 
 Copyright
-=========
+---------
 
-Copyright (c) 2011 Benedikt Böhm. See LICENSE for further details.
+Copyright (c) 2014 Wolfgang Barth.
+Copyright (c) 2011 Benedikt Böhm. 
+See LICENSE for further details.
