@@ -11,7 +11,7 @@ connection = Livestatus::Connection.new({:uri => "unix:///var/nagios/rw/live"})
 connection.command("DISABLE_NOTIFICATIONS")
 
 options  = { 
-  :columns => 'host_display_name display_name',
+  :columns => 'host_display_name display_name last_hard_state_change last_time_ok',
   :filter  => ['state > 0', 'description ~ Interface'] 
 }
 
