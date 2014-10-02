@@ -1,8 +1,8 @@
-require 'livestatus/handler'
+require 'livestatus-simple/handler'
 require 'socket'
 require 'yajl'
 
-module Livestatus
+module LivestatusSimple
 
   class UnixHandler
     def initialize(connection, config)

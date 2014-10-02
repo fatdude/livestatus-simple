@@ -1,9 +1,9 @@
 require "active_support/core_ext"
-require "livestatus/handler"
-require "livestatus/memoize"
+require "livestatus-simple/handler"
+require "livestatus-simple/memoize"
 require "forwardable"
 
-module Livestatus
+module LivestatusSimple
 
   class Connection
     extend Forwardable

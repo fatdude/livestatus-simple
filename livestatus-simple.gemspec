@@ -1,15 +1,16 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "livestatus/version"
+
+require "livestatus-simple/version"
 
 Gem::Specification.new do |s|
-  s.name        = "livestatus"
-  s.version     = Livestatus::VERSION
-  s.authors     = ["Wolfgang Barth"]
-  s.email       = ["wob@swobspace.net"]
-  s.homepage    = "https://github.com/swobspace/livestatus"
-  s.summary     = %q{Livestatus is a simple Ruby library to control Nagios via MK Livestatus.}
-  s.description = %q{Livestatus is a simple Ruby library to control Nagios via MK Livestatus.}
+  s.name        = "livestatus-simple"
+  s.version     = LivestatusSimple::VERSION
+  s.authors     = ["Wolfgang Barth", "Lawrence Matacena"]
+  s.email       = ["wob@swobspace.net", "lawrence.matacena@gmail.com"]
+  s.homepage    = "https://github.com/guaguasi/livestatus-simple"
+  s.summary     = %q{LivestatusSimple is a simple Ruby library to control Nagios via MK Livestatus.}
+  s.description = %q{LivestatusSimple is a simple Ruby library to control Nagios via MK Livestatus.}
   s.license	= 'MIT'
 
   s.files         = `git ls-files`.split("\n")
@@ -19,7 +20,6 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency "activesupport"
   s.add_runtime_dependency "i18n"
-  s.add_runtime_dependency "patron"
   s.add_runtime_dependency "yajl-ruby"
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec"

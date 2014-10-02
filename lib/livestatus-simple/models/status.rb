@@ -1,4 +1,4 @@
-class Livestatus::Status < Livestatus::Base
+class LivestatusSimple::Status < LivestatusSimple::Base
   table_name 'status'
 
   boolean_attributes :accept_passive_host_checks,

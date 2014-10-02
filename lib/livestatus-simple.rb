@@ -1,12 +1,12 @@
 require "active_support"
 require "active_support/core_ext"
 
-require "livestatus/version"
-require "livestatus/connection"
-require "livestatus/models"
-require "livestatus/operators"
+require "livestatus-simple/version"
+require "livestatus-simple/connection"
+require "livestatus-simple/models"
+require "livestatus-simple/operators"
 
-module Livestatus
+module LivestatusSimple
   mattr_accessor :connection
   self.connection = nil
 

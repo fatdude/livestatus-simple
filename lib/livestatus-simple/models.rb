@@ -1,6 +1,6 @@
 require "active_support/core_ext"
 
-module Livestatus
+module LivestatusSimple
   mattr_accessor :models
   self.models = {}
 
@@ -79,11 +79,11 @@ module Livestatus
   end
 end
 
-# load all models and register in Livestatus.models
+# load all models and register in LivestatusSimple.models
 Dir["#{File.dirname(__FILE__)}/models/*.rb"].map do |path|
   File.basename(path, '.rb')
 end.each do |name|
-  require "livestatus/models/#{name}"
-  model = "Livestatus::#{name.pluralize.classify}".constantize
-  Livestatus.models[model.table_name] = model
+  require "livestatus-simple/models/#{name}"
+  model = "LivestatusSimple::#{name.pluralize.classify}".constantize
+  LivestatusSimple.models[model.table_name] = model
 end

@@ -1,10 +1,10 @@
 require "active_support/core_ext"
-require 'livestatus/connection'
-require 'livestatus/models'
+require 'livestatus-simple/connection'
+require 'livestatus-simple/models'
 require 'sinatra/base'
 require 'yajl'
 
-module Livestatus
+module LivestatusSimple
   class API < Sinatra::Base
     cattr_accessor :config
 
@@ -26,11 +26,11 @@ module Livestatus
       halt 400, 'invalid method' unless ['GET', 'COMMAND'].include?(method)
       method = method.downcase.to_sym
 
-      c = Livestatus::Connection.new(self.config)
+      c = LivestatusSimple::Connection.new(self.config)
 
       case method
       when :get
-        res = c.get(Livestatus.models[query], headers).map(&:data)
+        res = c.get(LivestatusSimple.models[query], headers).map(&:data)
       when :command
         query =~ /\[([0-9]+)\] (.*)/
         time, command = $1.to_i, $2

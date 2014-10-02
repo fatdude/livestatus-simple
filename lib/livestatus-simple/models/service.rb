@@ -1,6 +1,6 @@
-class Livestatus::Service < Livestatus::Base
-  include Livestatus::CheckType
-  include Livestatus::State
+class LivestatusSimple::Service < LivestatusSimple::Base
+  include LivestatusSimple::CheckType
+  include LivestatusSimple::State
 
   boolean_attributes :accept_passive_checks, :acknowledged,
     :active_checks_enabled, :checks_enabled, :event_handler_enabled,

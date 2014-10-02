@@ -1,4 +1,4 @@
-module Livestatus
+module LivestatusSimple
   OPERATORS = {
     :eq => '=',
     :eqi => '=~',
