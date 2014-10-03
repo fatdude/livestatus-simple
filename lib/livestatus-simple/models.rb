@@ -18,9 +18,10 @@ module LivestatusSimple
 
     class << self
       def table_name(value = nil)
-        @table_name ||= false
-        @table_name = value if value
-        @table_name or to_s.demodulize.tableize.downcase.pluralize
+        return @table_name if @table_name
+
+        @table_name = value||to_s.demodulize.tableize
+        @table_name
       end
 
       def boolean_attributes(*accessors)
@@ -84,6 +85,6 @@ Dir["#{File.dirname(__FILE__)}/models/*.rb"].map do |path|
   File.basename(path, '.rb')
 end.each do |name|
   require "livestatus-simple/models/#{name}"
-  model = "LivestatusSimple::#{name.pluralize.classify}".constantize
+  model = "LivestatusSimple::#{name.classify}".constantize
   LivestatusSimple.models[model.table_name] = model
 end
