@@ -1,4 +1,3 @@
-require "active_support/core_ext"
 require "livestatus-simple/handler"
 require "livestatus-simple/memoize"
 require "forwardable"
