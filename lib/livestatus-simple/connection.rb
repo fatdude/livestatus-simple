@@ -14,14 +14,9 @@ module LivestatusSimple
     end
 
     def handler
-      case @config[:uri]
-      when /^https?:\/\//
-        PatronHandler.new(self, @config)
-      when /^unix:\/\//
-        UnixHandler.new(self, @config)
-      else
-        raise ArgumentError, "unknown uri type: #{@config[:uri]}"
-      end
+      raise ArgumentError, "unknown uri type: #{@config[:uri]}" unless @config[:uri] =~ /^unix:\/\//
+
+      UnixHandler.new(self, @config)
     end
 
     memoize :handler
