@@ -20,7 +20,7 @@ module LivestatusSimple
       def table_name(value = nil)
         return @table_name if @table_name
 
-        @table_name = value||to_s.demodulize.tableize
+        @table_name = value||to_s.demodulize.downcase.tableize
         @table_name
       end
 
