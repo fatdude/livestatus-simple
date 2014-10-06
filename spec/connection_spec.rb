@@ -24,16 +24,16 @@ describe 'Connection' do
     end
 
     it "livestatus socket should exist" do
-      @conn.should be_a_kind_of LivestatusSimple::Connection
+      expect(@conn).to be_a_kind_of(LivestatusSimple::Connection)
     end
 
     it "get LivestatusSimple::Status should deliver some status data" do
       status = @conn.get(LivestatusSimple::Status)[0]
-      status.should be_a_kind_of LivestatusSimple::Status
-      status.should respond_to(:accept_passive_host_checks)
-      status.should respond_to(:program_start)
-      status.data.should include(:livestatus_version)
-      status.livestatus_version.should match(/\d+\.\d+\.\d+/)
+      expect(status).to be_a_kind_of(LivestatusSimple::Status)
+      expect(status).to respond_to(:accept_passive_host_checks)
+      expect(status).to respond_to(:program_start)
+      expect(status.data).to include(:livestatus_version)
+      expect(status.livestatus_version).to match(/\d+\.\d+\.\d+/)
     end
 
     it "get livestatus instance should raise an error on non existent attributes" do

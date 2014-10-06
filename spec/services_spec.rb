@@ -8,16 +8,16 @@ describe 'Services' do
 
   it "get a list of services" do
     status = @conn.get(LivestatusSimple::Service)
-    status.should be_a_kind_of Array
-    status[0].should be_a_kind_of LivestatusSimple::Service
-    status[0].should respond_to(:data)
+    expect(status).to be_a_kind_of(Array)
+    expect(status[0]).to be_a_kind_of(LivestatusSimple::Service)
+    expect(status[0]).to respond_to(:data)
   end
 
   it "get only services for host #{ENV['HOST_NAME']}" do
     options = {filter: ["host_name = #{ENV['HOST_NAME']}"]}
     status = @conn.get(LivestatusSimple::Service, options)
     status.each do |s|
-      s.host_name.should == ENV['HOST_NAME']
+      expect(s.host_name).to eq(ENV['HOST_NAME'])
     end
   end
 
