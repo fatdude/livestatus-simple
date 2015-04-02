@@ -14,9 +14,14 @@ module LivestatusSimple
     end
 
     def handler
-      raise ArgumentError, "unknown uri type: #{@config[:uri]}" unless @config[:uri] =~ /^unix:\/\//
-
-      UnixHandler.new(self, @config)
+      case @config[:uri]
+        when /^tcp:\/\//
+          TCPHandler.new(self, @config)
+        when /^unix:\/\//
+          UnixHandler.new(self, @config)
+        else
+          raise ArgumentError, "unknown uri type: #{@config[:uri]}"
+      end
     end
 
     memoize :handler
