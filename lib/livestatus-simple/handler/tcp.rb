@@ -12,8 +12,9 @@ module LivestatusSimple
 
     def get(model, options = {})
       options.merge!({
-        :response_header => "fixed16",
-        :output_format => "json",
+        response_header: "fixed16",
+        output_format: "json",
+        column_headers: 'on'
       })
 
       send("GET #{model.table_name}\n#{build_headers(options)}\n")
@@ -67,12 +68,16 @@ module LivestatusSimple
 
     def build_headers(options)
       options.map do |k, v|
-        if v.is_a?(Array)
-          v.map do |e|
-            "#{k.to_s.camelize}: #{e}"
-          end
+        if k == :raw
+          v
         else
-          "#{k.to_s.camelize}: #{v}"
+          if v.is_a?(Array)
+            v.map do |e|
+              "#{k.to_s.camelize}: #{e}"
+            end
+          else
+            "#{k.to_s.camelize}: #{v}"
+          end
         end
       end.flatten.join("\n")
     end
